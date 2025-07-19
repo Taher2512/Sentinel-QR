@@ -195,7 +195,7 @@ export default function Home() {
 
         {/* Animated grid overlay - extended */}
         <div className="absolute -left-20 -right-20 inset-y-0 bg-grid-pattern opacity-10"></div>
-        
+
         {/* Floating geometric shapes - extended to viewport edges */}
         <div className="absolute -left-32 -right-32 inset-y-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/6 w-32 h-32 border border-red-500/30 rotate-45 animate-spin-slow"></div>
@@ -313,7 +313,7 @@ export default function Home() {
 
         {/* Global network grid overlay */}
         <div className="absolute -left-20 -right-20 inset-y-0 bg-grid-pattern opacity-10"></div>
-        
+
         {/* Floating network nodes */}
         <div className="absolute -left-32 -right-32 inset-y-0 overflow-hidden">
           <div className="absolute top-1/6 left-1/8 w-6 h-6 bg-cyan-400/60 rounded-full animate-ping"></div>
@@ -362,50 +362,147 @@ export default function Home() {
         {/* Side glow effects */}
         <div className="absolute left-0 top-0 w-40 h-full bg-gradient-to-r from-cyan-500/12 via-cyan-500/6 to-transparent"></div>
         <div className="absolute right-0 top-0 w-40 h-full bg-gradient-to-l from-blue-500/12 via-blue-500/6 to-transparent"></div>
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Global Security Network
-              </h2>
+              {/* Enhanced header */}
+              <div className="mb-8">
+                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full mb-6">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full mr-2 animate-pulse"></div>
+                  <span className="text-xs font-mono text-cyan-300 tracking-wider">
+                    GLOBAL NETWORK
+                  </span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                  GLOBAL SECURITY
+                </h2>
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
+                  NETWORK
+                </h3>
+              </div>
+
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
                 Sentinel QR operates across industries worldwide, providing
                 instant verification for products from pharmaceuticals to luxury
                 goods, electronics to food safety.
               </p>
 
-              {/* Industry Stats */}
+              {/* Enhanced Industry Stats */}
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {useCases.slice(0, 4).map((useCase, index) => (
                   <div
                     key={index}
-                    className="group p-4 rounded-xl bg-gradient-to-br from-gray-800/30 to-gray-700/20 backdrop-blur-sm border border-cyan-500/20 hover:border-cyan-400/50 transition-all duration-300"
+                    className="group relative p-6 rounded-xl bg-gradient-to-br from-gray-800/60 to-gray-700/40 backdrop-blur-sm border border-cyan-500/20 hover:border-cyan-400/60 transition-all duration-500 overflow-hidden transform hover:scale-105"
                   >
-                    <h3 className="text-lg font-bold text-cyan-400 mb-2">
-                      {useCase.industry}
-                    </h3>
-                    <p className="text-sm text-gray-300">
-                      {useCase.description}
-                    </p>
+                    {/* Enhanced hover effects */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+
+                    {/* Scanning line */}
+                    <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 animate-pulse"></div>
+
+                    {/* Corner indicators */}
+                    <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                    <div className="relative z-10">
+                      <h3 className="text-lg font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
+                        {useCase.industry}
+                      </h3>
+                      <div className="w-8 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 mb-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400"></div>
+                      <p className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                        {useCase.description}
+                      </p>
+
+                      {/* Status indicator */}
+                      <div className="flex items-center mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                        <span className="text-xs text-green-300 font-mono">
+                          ACTIVE
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Floating particle */}
+                    <div className="absolute top-3 right-3 w-1 h-1 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping"></div>
                   </div>
                 ))}
               </div>
 
-              <div className="flex items-center space-x-4">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-sm text-cyan-300 font-mono">
+              <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-lg border border-green-500/20">
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-sm text-cyan-300 font-mono tracking-wider">
                   ACTIVE IN 50+ COUNTRIES
+                </span>
+                <div className="flex-1 h-px bg-gradient-to-r from-green-400/30 to-transparent"></div>
+                <span className="text-xs text-green-400 font-mono">
+                  EXPANDING
                 </span>
               </div>
             </div>
 
-            {/* Right Globe */}
+            {/* Enhanced Right Globe */}
             <div className="relative flex items-center justify-center">
+              {/* Globe container with enhanced effects */}
               <div className="relative w-96 h-96 md:w-[500px] md:h-[500px]">
-                {/* <Globe className="w-full h-full" /> */}
+                {/* Outer orbital ring */}
+                <div className="absolute inset-0 rounded-full border border-cyan-500/20 animate-spin-slow">
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-blue-400 rounded-full animate-pulse delay-500"></div>
+                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-2 h-2 bg-green-400 rounded-full animate-pulse delay-1000"></div>
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 w-3 h-3 bg-purple-400 rounded-full animate-pulse delay-1500"></div>
+                </div>
+
+                {/* Inner orbital ring */}
+                <div className="absolute inset-12 rounded-full border border-blue-500/15 animate-spin-reverse">
+                  <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-cyan-300 rounded-full animate-ping"></div>
+                  <div className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 bg-blue-300 rounded-full animate-ping delay-700"></div>
+                </div>
+
+                {/* Globe component */}
                 <Globe />
+
+                {/* Enhanced overlay effects */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 rounded-full blur-2xl animate-pulse pointer-events-none"></div>
+
+                {/* Connection indicators around globe */}
+                <div className="absolute -top-6 left-1/4 px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded backdrop-blur-sm animate-float-slow">
+                  <div className="text-xs text-cyan-300 font-mono">EU</div>
+                </div>
+                <div className="absolute -top-6 right-1/4 px-2 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded backdrop-blur-sm animate-float-delayed">
+                  <div className="text-xs text-blue-300 font-mono">ASIA</div>
+                </div>
+                <div className="absolute -bottom-6 left-1/3 px-2 py-1 bg-gradient-to-r from-green-500/20 to-cyan-500/20 border border-green-500/30 rounded backdrop-blur-sm animate-float-reverse">
+                  <div className="text-xs text-green-300 font-mono">
+                    AMERICAS
+                  </div>
+                </div>
+                <div className="absolute -bottom-6 right-1/3 px-2 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded backdrop-blur-sm animate-float-slow">
+                  <div className="text-xs text-purple-300 font-mono">
+                    AFRICA
+                  </div>
+                </div>
+
+                {/* Data transmission lines */}
+                <div className="absolute inset-0 opacity-60">
+                  <div className="absolute top-1/3 left-1/4 w-24 h-px bg-gradient-to-r from-cyan-400/40 to-transparent rotate-12 animate-pulse"></div>
+                  <div className="absolute bottom-1/3 right-1/4 w-20 h-px bg-gradient-to-l from-blue-400/30 to-transparent -rotate-12 animate-pulse delay-800"></div>
+                  <div className="absolute top-1/2 left-1/6 w-16 h-px bg-gradient-to-r from-green-400/25 to-transparent rotate-45 animate-pulse delay-1200"></div>
+                  <div className="absolute bottom-1/2 right-1/6 w-18 h-px bg-gradient-to-l from-purple-400/35 to-transparent -rotate-45 animate-pulse delay-400"></div>
+                </div>
+              </div>
+
+              {/* Global status indicator */}
+              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 px-4 py-2 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg">
+                <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-sm font-mono text-green-400">
+                  GLOBAL NETWORK ONLINE
+                </span>
+                <div className="w-px h-4 bg-cyan-400/30"></div>
+                <span className="text-xs font-mono text-cyan-300">
+                  50+ NODES
+                </span>
               </div>
             </div>
           </div>
